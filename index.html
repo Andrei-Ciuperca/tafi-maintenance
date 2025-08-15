@@ -1,15 +1,110 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mentenanță</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     <style>
-        body { font-family: sans-serif; text-align: center; padding-top: 100px; color: #333; }
-        h1 { font-size: 48px; }
+        :root {
+            --background-dark: #040f1a;
+            --text-color-primary: #eff1f3;
+            --text-color-secondary: rgba(239, 241, 243, 0.65);
+            --glass-bg: rgba(18, 38, 58, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            --blur-intensity: 16px;
+            --transaf-orange: #f58220;
+        }
+
+        html {
+            font-family: 'Inter', sans-serif;
+            background: var(--background-dark);
+            color: var(--text-color-primary);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .maintenance-container {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur-intensity));
+            -webkit-backdrop-filter: blur(var(--blur-intensity));
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            overflow: hidden;
+            padding: 0rem 4rem 2rem 4rem;
+        }
+
+        .logo {
+            height: 150px;
+            margin-bottom: -2rem; /* Pulls the content up */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-top: 0; /* Removes any default top margin */
+            margin-bottom: 1rem;
+            color: var(--transaf-orange);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-color-secondary);
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .lang-switcher {
+            margin-top: 2rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .lang-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-color-secondary);
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color-primary);
+        }
     </style>
 </head>
 <body>
-    <h1>Revenim imediat!</h1>
-    <p>Site-ul este în curs de mentenanță. Te rugăm să revii în câteva minute.</p>
+    <div class="lang-switcher">
+        <button id="lang-en" class="lang-btn">EN</button>
+        <button id="lang-ro" class="lang-btn">RO</button>
+        <button id="lang-ru" class="lang-btn">RU</button>
+    </div>
+    <div class="maintenance-container glass-effect">
+        <img src="logo_tafi.png" alt="Tafi Logo" class="logo">
+        <h1 id="maintenance-title">Under Maintenance</h1>
+        <p id="maintenance-message">We are currently performing scheduled maintenance. We should be back online shortly. Thank you for your patience.</p>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
